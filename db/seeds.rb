@@ -9,7 +9,7 @@
 def populate_reviews(restaurant)
   rand(0..5).times do
     review = Review.new(
-      content: Faker::TvShows::SiliconValley.quote,
+      content: Faker::Restaurant.review,
       rating: rand(0..5)
     )
     review.restaurant = restaurant
@@ -25,7 +25,7 @@ puts 'Creating 10 seeds...'
 
 10.times do
   restaurant = Restaurant.new(
-    name: Faker::TvShows::SiliconValley.company,
+    name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.cell_phone,
     category: %w[chinese italian japanese french belgian].sample
