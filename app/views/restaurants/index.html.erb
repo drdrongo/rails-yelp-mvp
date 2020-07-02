@@ -1,12 +1,20 @@
-<h1>All Restaurants</h1>
 
-<ul class="list-group">
-<% @restaurants.each do |restaurant| %>
-  <li class="list-group-item">
-    <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
-    <p><%= restaurant.phone_number %></p>
-  </li>
-<% end %>
-</ul>
+<div class="container-fluid">
+  <div class="card-columns">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant), :action => 'go' do %>
+        <div class="card rounded">
+          <img class="card-img-top" src="https://www.telegraph.co.uk/content/dam/Travel/Destinations/Asia/Hong%20Kong/hong-kong-victoria-peak-pano-guide.jpg" alt="restaurant pic">
+          <div class="card-body" style="min-height: 100px;">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.phone_number %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Create a Restaurant", new_restaurant_path, class: 'btn btn-outline-primary w-100' %>
+</div>
 
-<%= link_to "Create a Restaurant", new_restaurant_path, class: 'btn btn-outline-primary w-100' %>
+
+

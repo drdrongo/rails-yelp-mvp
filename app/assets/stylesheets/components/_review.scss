@@ -1,0 +1,18 @@
+#review-form {
+    visibility:hidden;
+    height:0px;
+    overflow: hidden;
+    transition:0.5s;
+    -webkit-transition:0.5s;
+}
+#review-form.visible {
+    visibility:visible;
+    height: 250px;
+}
+
+#review-btn:after {
+  content: "Write a review"
+}
+#review-btn.opened:after {
+  content: "Collapse"
+}
